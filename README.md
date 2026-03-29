@@ -1,13 +1,14 @@
 # stipulate
 Show clearly what lines are active, for lwasm source files, given a set of label pre-definitions.
 
-Run your .asm file through this filter, into the stdin, and capture the stdout.
-Use `-D label` or `-D label=value` command-line flags to specify labels you want to predefine.
-The first form assigns a default value of 1.
+Run your .asm file through this filter, into the stdin, and capture
+the stdout.  Use `-D label` or `-D label=value` command-line flags to
+specify labels you want to predefine.  The first form assigns a default
+value of 1.
 
 Use `vimdiff` to compare your original file with the output of the filter.
-Lines that are unchanged between the two versions are the active lines that
-`lwasm` will assemble.
+Lines that are unchanged between the two versions are the active lines
+that `lwasm` will assemble.
 
 Lines that `vimdiff` marks as "changed" are in these categories:
 
@@ -38,16 +39,18 @@ This is the command line:
 ```
 $ cd ~/modoc/coco-shelf/stipulate
 $ cp ~/modoc/coco-shelf/nitros9/level1/modules/kernel/krn.asm _1
-$ go run stipulate.go < _1 > _2 -D atari -D CHECK_FOR_VALID_RAM
+$ go run stipulate.go < _1 > _2 -D atari -D CHECK_FOR_VALID_RAM=1
 ```
 
-### Screen 1
+In each of the screenshots below, the lines with a dark background color
+are the active lines that are actually assembled.
+
+You may choose to mentally focus on the left hand side, which is visually
+simpler, or on the right hand side, which uses prefixes (in Orange)
+to show the nesting of directives, `----` marks for comment lines, and
+`;;;;` marks for skipped lines.
 
 ![](doc/screen1.png)
 
-
-### Screen 2
-
 ![](doc/screen2.png)
-
 
