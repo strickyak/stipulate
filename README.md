@@ -34,12 +34,13 @@ Here the original source is on the left and the filter output is on the right.
 
 The command line defines `atari` to be `1` and `CHECK_FOR_VALID_RAM` to be `1`.
 
-This is the command line:
+These are the sample command lines:
 
 ```
 $ cd ~/modoc/coco-shelf/stipulate
 $ cp ~/modoc/coco-shelf/nitros9/level1/modules/kernel/krn.asm _1
 $ go run stipulate.go < _1 > _2 -D atari -D CHECK_FOR_VALID_RAM=1
+$ vimdiff _1 _2
 ```
 
 In each of the screenshots below, the lines with a dark background color
@@ -53,4 +54,3 @@ to show the nesting of directives, `----` marks for comment lines, and
 ![](doc/screen1.png)
 
 ![](doc/screen2.png)
-
