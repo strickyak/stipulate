@@ -54,3 +54,10 @@ to show the nesting of directives, `----` marks for comment lines, and
 ![](doc/screen1.png)
 
 ![](doc/screen2.png)
+
+The following screen shows how tricky commented-out lines are made
+much more visible.
+
+![](doc/screen3.png)
+
+<!-- end -->

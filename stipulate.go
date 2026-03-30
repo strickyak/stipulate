@@ -66,6 +66,37 @@ var Cond = map[string]func(string) bool{
         b = evaluator.Evaluate(a, Defs)
 		return (b != 0)
 	},
+	"ifgt": func(a string) bool {
+		b, _ := Defs[a]
+        b = evaluator.Evaluate(a, Defs)
+		return (int16(b) > 0)  // switch to signed comparison
+	},
+	"ifge": func(a string) bool {
+		b, _ := Defs[a]
+        b = evaluator.Evaluate(a, Defs)
+		return (int16(b) >= 0)  // switch to signed comparison
+	},
+	"iflt": func(a string) bool {
+		b, _ := Defs[a]
+        b = evaluator.Evaluate(a, Defs)
+		return (int16(b) < 0)  // switch to signed comparison
+	},
+	"ifle": func(a string) bool {
+		b, _ := Defs[a]
+        b = evaluator.Evaluate(a, Defs)
+		return (int16(b) <= 0)  // switch to signed comparison
+	},
+	"ifp1": func(a string) bool {
+		return true
+	},
+	"ifdef": func(a string) bool {
+		_, ok := Defs[a]
+		return ok
+	},
+	"ifnd": func(a string) bool {
+		_, ok := Defs[a]
+		return !ok
+	},
 }
 
 // DefineFlag acts as a bridge between Go's flag package and our definitions map.
