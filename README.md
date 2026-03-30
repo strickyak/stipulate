@@ -43,6 +43,9 @@ $ go run stipulate.go < _1 > _2 -D atari -D CHECK_FOR_VALID_RAM=1
 $ vimdiff _1 _2
 ```
 
+The `go run stipulate.go ...` command will print a lot of junk to stderr.
+That's for debugging.  You can ignore all the junk.
+
 In each of the screenshots below, the lines with a dark background color
 are the active lines that are actually assembled.
 
