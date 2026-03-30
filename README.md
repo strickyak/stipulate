@@ -1,18 +1,18 @@
 # stipulate
-Show clearly what lines are active, for lwasm source files, given a set of label pre-definitions.
+Show clearly what lines are active, for lwasm source files, given a set of symbol pre-definitions.
 
 Run your .asm file through this filter, into the stdin, and capture
-the stdout.  Use `-D label` or `-D label=value` command-line flags to
-specify labels you want to predefine.  The first form assigns a default
+the stdout.  Use `-D symbol` or `-D symbol=value` command-line flags to
+specify symbols you want to predefine.  The first form assigns a default
 value of 1.
 
-Use `vimdiff` to compare your original file with the output of the filter.
+Then use `vimdiff` to compare your original file with the output of the filter.
 Lines that are unchanged between the two versions are the active lines
 that `lwasm` will assemble.
 
 Lines that `vimdiff` marks as "changed" are in these categories:
 
-*   Comments:  Lines that are entire comments are preceeded with `--------------------`.
+*   Comments:  Lines that are only comments are preceeded with `--------------------`.
 
 *   Conditional Directives: The directives like `if`, `ifne`, `else`, and `endc` are preceeded
     by braces such as `{{{`, `}={`, and `}}}` to help you see the nesting
@@ -21,7 +21,7 @@ Lines that `vimdiff` marks as "changed" are in these categories:
 *   Inactive:  Lines that are not active due to conditional directives are
     preceeded by `;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;`.
 
-*   Lines containing only white space in the original file highlight the white space.
+*   Lines containing only some white space in the original file highlight the white space.
     You might want to consider deleting the white space.
 
 It is intended that you will edit the original file, not the filter
